@@ -116,6 +116,13 @@ if dein#tap('fzf.vim')
         nnoremap <silent> <leader>fw :Rg <C-R><C-W><CR>
 endif
 
+if dein#tap('vim-clap')
+    nnoremap <silent> <leader>of :Clap files<CR>
+    nnoremap <silent> <leader>os :Clap grep<CR>
+    nnoremap <silent> <leader>ob :Clap blines<CR>
+    nnoremap <silent> <leader>oc :Clap colors<CR>
+endif
+
 if dein#tap('vim-easy-align')
     " Start interactive EasyAlign in visual mode (e.g. vipga)
     xmap ga <Plug>(EasyAlign)

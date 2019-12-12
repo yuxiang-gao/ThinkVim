@@ -119,6 +119,10 @@
 # }}}
 
 # Search Plugins{{{
+
+- repo: liuchengxu/vim-clap
+  on_cmd: [Clap grep,Clap blines,Clap colors,Clap files]
+
 - repo: junegunn/fzf
   build: './install --all'
   merged: 0
