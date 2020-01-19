@@ -199,20 +199,20 @@ or use [coc-marketplace](https://github.com/fannheyward/coc-marketplace), which 
 | Keys                                       | Mode    | Description                             |
 | ------------------------------------------ | ------- | --------------------------------------- |
 | <kbd>Ctrl</kbd> + <kbd>w</kbd>             | Insert  | delete the whole word                   |
-| <kbd>Ctrl</kbd> + <kbd>h</kbd>             | Insert  | delete `BackSpace`                      |
+| <kbd>Ctrl</kbd> + <kbd>x</kbd>             | Insert  | delete `BackSpace`                      |
 | <kbd>Ctrl</kbd> + <kbd>d</kbd>             | Insert  | delete a single char                    |
 | <kbd>Ctrl</kbd> + <kbd>u</kbd>             | Insert  | delete to the beginning of the line     |
-| <kbd>Ctrl</kbd> + <kbd>b</kbd>             | Insert  | move left                               |
-| <kbd>Ctrl</kbd> + <kbd>f</kbd>             | Insert  | move right                              |
+| <kbd>Ctrl</kbd> + <kbd>h</kbd>             | Insert  | move left                               |
+| <kbd>Ctrl</kbd> + <kbd>l</kbd>             | Insert  | move right                              |
 | <kbd>Ctrl</kbd> + <kbd>a</kbd>             | Insert  | move the head of line                   |
 | <kbd>Ctrl</kbd> + <kbd>e</kbd>             | Insert  | move the end of line                    |
 | <kbd>Ctrl</kbd> + <kbd>p</kbd>             | Command | move up                                 |
-| <kbd>Ctrl</kbd> + <kbd>b</kbd>             | Command | move left                               |
-| <kbd>Ctrl</kbd> + <kbd>f</kbd>             | Command | move right                              |
+| <kbd>Ctrl</kbd> + <kbd>h</kbd>             | Command | move left                               |
+| <kbd>Ctrl</kbd> + <kbd>l</kbd>             | Command | move right                              |
 | <kbd>Ctrl</kbd> + <kbd>a</kbd>             | Command | move the head of line                   |
 | <kbd>Ctrl</kbd> + <kbd>e</kbd>             | Command | move the end of line                    |
 | <kbd>Ctrl</kbd> + <kbd>d</kbd>             | Command | move the cursors char                   |
-| <kbd>Ctrl</kbd> + <kbd>h</kbd>             | Command | delete `BackSpace`                      |
+| <kbd>Ctrl</kbd> + <kbd>x</kbd>             | Command | delete `BackSpace`                      |
 | <kbd>Ctrl</kbd> + <kbd>S</kbd>             | Insert  | save                                    |
 | <kbd>Ctrl</kbd> + <kbd>Q</kbd>             | Insert  | save and exit                           |
 | <kbd>Ctrl</kbd> + <kbd>o</kbd>             | Insert  | create a new line                       |
@@ -407,8 +407,8 @@ or use [coc-marketplace](https://github.com/fannheyward/coc-marketplace), which 
 | <kbd>.</kbd>                     | Defx   | show ignore files                                                                          |
 | <kbd>h</kbd>                     | Defx   | Return to the parent directory                                                             |
 | <kbd>q</kbd>                     | Defx   | exit defx                                                                                  |
-| <kbd>s</kbd>                     | Defx   | Open in rightwindow vs                                                                     |
-| <kbd>i</kbd>                     | Defx   | Open file sp                                                                               |
+| <kbd>v</kbd>                     | Defx   | Open in rightwindow vs                                                                     |
+| <kbd>s</kbd>                     | Defx   | Open file sp                                                                               |
 | <kbd>y</kbd> + <kbd>y</kbd>      | Defx   | copy the path of file                                                                      |
 | <kbd>\</kbd>                     | Defx   | show the path of file                                                                      |
 | <kbd>c</kbd>                     | Defx   | copy                                                                                       |

@@ -91,14 +91,19 @@ function! s:defx_mappings() abort
 	setlocal signcolumn=no
 
 	nnoremap <silent><buffer><expr> <CR>  defx#do_action('drop')
-	nnoremap <silent><buffer><expr> l     <SID>defx_toggle_tree()
-	nnoremap <silent><buffer><expr> h     defx#async_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> st    defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
-	nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright vsplit')
-	nnoremap <silent><buffer><expr> i     defx#do_action('open', 'botright split')
+	" nnoremap <silent><buffer><expr> l     <SID>defx_toggle_tree()
+	nnoremap <silent><buffer><expr><nowait> l     <SID>defx_toggle_tree()
+	nnoremap <silent><buffer><expr><nowait> h     defx#do_action('close_tree')
+	nnoremap <silent><buffer><expr><nowait> H     defx#async_action('cd', ['..'])
+	nnoremap <silent><buffer><expr><nowait> L     defx#async_action('open')
+	nnoremap <silent><buffer><expr><nowait> J     defx#do_action('toggle_select') . 'j'
+	nnoremap <silent><buffer><expr><nowait> K     defx#do_action('toggle_select') . 'k'
+	nnoremap <silent><buffer><expr> st    defx<nowait>#do_action('multi', [['drop', 'tabnew'], 'quit'])
+	nnoremap <silent><buffer><expr> v     defx#do_action('open', 'botright vsplit')
+	nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright split')
 	nnoremap <silent><buffer><expr> P     defx#do_action('open', 'pedit')
-	nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
-	nnoremap <silent><buffer><expr> N     defx#do_action('new_multiple_files')
+	nnoremap <silent><buffer><expr> N     defx#do_action('new_directory')
+	nnoremap <silent><buffer><expr> n     defx#do_action('new_multiple_files')
 	nnoremap <silent><buffer><expr> dd    defx#do_action('remove_trash')
 	nnoremap <silent><buffer><expr> r     defx#do_action('rename')
 	nnoremap <silent><buffer><expr> x     defx#do_action('execute_system')

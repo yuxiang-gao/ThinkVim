@@ -126,3 +126,6 @@ let s:current_colorscheme = get(g:,"colors_name","")
 if  s:current_colorscheme == "base16-default-dark"
     highlight WhichKeySeperator guibg=NONE ctermbg=NONE guifg=#a1b56c ctermfg=02
 endif
+" if  s:current_colorscheme == "nord"
+"     highlight WhichKeySeperator guibg=#81A1C1 ctermbg=NONE guifg=#4C566A ctermfg=02
+" endif

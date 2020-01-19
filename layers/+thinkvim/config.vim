@@ -86,7 +86,14 @@ if dein#tap('coc.nvim')
         " multiple cursors
         nmap <silent> <C-c> <Plug>(coc-cursors-position)
         nmap <expr> <silent> <C-m> <SID>select_current_word()
-        xmap <silent> <C-d> <Plug>(coc-cursors-range)
+        " xmap <silent> <C-d> <Plug>(coc-cursors-range)
+        nmap <expr> <silent> <C-d> <SID>select_current_word()
+        function! s:select_current_word()
+        if !get(g:, 'coc_cursors_activated', 0)
+            return "\<Plug>(coc-cursors-word)"
+        endif
+        return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+        endfunc(coc-cursors-range)gn
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
 

@@ -1,7 +1,4 @@
 " Enable true color
-if has('termguicolors')
-	set termguicolors
-endif
 set nobackup
 set noswapfile
 set autoread
@@ -38,6 +35,11 @@ endif
 if has('clipboard')
 	set clipboard& clipboard+=unnamedplus
 endif
+
+if has('mouse')
+	set mouse=a
+endif
+
 set history=2000
 set number
 set timeout ttimeout
@@ -46,10 +48,79 @@ set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100
 set undofile
-set undodir=~/.tmp/undo
+set undodir=~/.config/nvim/undo
 set relativenumber
 set backspace=2
 set backspace=indent,eol,start
+
+" Appearance {{{
+    set number " show line numbers
+    set wrap " turn on line wrapping
+    set wrapmargin=8 " wrap lines when coming within n characters from side
+    set linebreak " set soft wrapping
+    set showbreak=… " show ellipsis at breaking
+    set autoindent " automatically set indent of new line
+    set ttyfast " faster redrawing
+    set diffopt+=vertical,iwhite,internal,algorithm:patience,hiddenoff
+    set laststatus=2 " show the status line all the time
+    set so=7 " set 7 lines to the cursors - when moving vertical
+    set wildmenu " enhanced command line completion
+    set hidden " current buffer can be put into background
+    set showcmd " show incomplete commands
+    set noshowmode " don't show which mode disabled for PowerLine
+    set wildmode=list:longest " complete files like a shell
+    set shell=$SHELL
+    set cmdheight=1 " command bar height
+    set title " set terminal title
+    set showmatch " show matching braces
+    set mat=2 " how many tenths of a second to blink
+    set updatetime=300
+    set signcolumn=yes
+    set shortmess+=c
+
+    " Tab control
+    set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+    set tabstop=4 " the visible width of tabs
+    set softtabstop=4 " edit as if the tabs are 4 characters wide
+    set shiftwidth=4 " number of spaces to use for indent and unindent
+    set shiftround " round indent to a multiple of 'shiftwidth'
+
+    " code folding settings
+    set foldmethod=syntax " fold based on indent
+    set foldlevelstart=99
+    set foldnestmax=10 " deepest fold is 10 levels
+    set nofoldenable " don't fold by default
+    set foldlevel=1
+
+    " toggle invisible characters
+    set list
+    set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+    set showbreak=↪
+
+    set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+    " switch cursor to line when in insert mode, and block when not
+    set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+    \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+    \,sm:block-blinkwait175-blinkoff150-blinkon175
+
+    if &term =~ '256color'
+        " disable background color erase
+        set t_ut=
+    endif
+
+    " enable 24 bit color support if supported
+    if (has("termguicolors"))
+        if (!(has("nvim")))
+            let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+            let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+        endif
+        set termguicolors
+    endif
+
+    " highlight conflicts
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" }}}
+
 " Tabs and Indents {{{
 " ----------------
 set textwidth=80    " Text width maximum chars before wrapping
@@ -88,6 +159,13 @@ if has('conceal')
 	set conceallevel=3 concealcursor=niv
 endif
 
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+autocmd FileType netrw setl bufhidden=delete
+
+" if hidden is not set, TextEdit might fail.
+set hidden
+
 " Vim Directories {{{
 " ---------------
 set undofile swapfile nobackup
@@ -96,6 +174,10 @@ set undodir=$DATA_PATH/undo//,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set backupdir=$DATA_PATH/backup/,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set viewdir=$DATA_PATH/view/
 set nospell spellfile=$VIM_PATH/spell/en.utf-8.add
+
+"python
+let g:python2_host_prog = '/usr/local/bin/python2' " '${HOME}/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3' " '${HOME}/.pyenv/versions/neovim3/bin/python'
 
 " History saving
 set history=1000
@@ -140,3 +222,23 @@ if has('folding')
 	set foldmethod=syntax
 	set foldlevelstart=99
 endif
+
+
+" AutoGroups {{{
+    " file type specific settings
+    augroup configgroup
+        autocmd!
+
+        " automatically resize panes on resize
+        autocmd VimResized * exe 'normal! \<c-w>='
+        autocmd BufWritePost .vimrc,.vimrc.local,init.vim source %
+        autocmd BufWritePost .vimrc.local source %
+        " save all files on focus lost, ignoring warnings about untitled buffers
+        autocmd FocusLost * silent! wa
+
+        " make quickfix windows take all the lower section of the screen
+        " when there are multiple windows open
+        autocmd FileType qf wincmd J
+        autocmd FileType qf nmap <buffer> q :q<cr>
+    augroup END
+" }}}

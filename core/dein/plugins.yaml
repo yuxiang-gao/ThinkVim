@@ -3,10 +3,23 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+
+- repo: arcticicestudio/nord-vim
 - repo: taigacute/spaceline.vim
+  hook_source: source  $VIM_PATH/layers/+ui/spaceline/config.vim
+
+# - repo: itchyny/lightline.vim
+#   hook_source: source  $VIM_PATH/layers/+ui/lightline/config.vim
+
 - repo: bagrat/vim-buffet
   hook_add: source $VIM_PATH/layers/+ui/buffet/config.vim
 #}}}
+
+# - repo: rafi/awesome-vim-colorschemes
+# This plugin is a repackaging of Mislav Marohnić's tmux-navigator configuration described in this gist. When combined with a set of tmux key bindings, the plugin will allow you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys.
+- repo: christoomey/vim-tmux-navigator
+- repo: tpope/vim-sleuth
+  hook_add: let g:sleuth_neighbor_limit = 5
 
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
@@ -19,8 +32,18 @@
 # }}}
 
 
+# # GUI only:
+# - { repo: equalsraf/neovim-gui-shim, if: has('gui_running') }
+
+# # Vim8 only:
+# - { repo: roxma/nvim-yarp, if: "! has('nvim')", depends: vim-hug-neovim-rpc }
+# - { repo: roxma/vim-hug-neovim-rpc, if: "! has('nvim')" }
+
 # Lazy Loading
 # ==========================================
+
+- repo: wsdjeg/dein-ui.vim
+  on_cmd: DeinUpdate
 
 # Denite{{{
 - repo: Shougo/denite.nvim
@@ -82,7 +105,9 @@
             \   },
             \}
         let g:quickrun_no_default_key_mappings = 1
-- {repo: simnalamburt/vim-mundo , on_map: { n: <Plug> } }
+- repo: simnalamburt/vim-mundo
+  on_map: { n: <Plug> } 
+  hook_source: source  $VIM_PATH/layers/+tools/mundo/config.vim
 
 - {repo: tpope/vim-repeat , on_map: .* }
 
@@ -175,16 +200,36 @@
 
 - repo: tpope/vim-markdown
   on_ft: markdown
+  # hook_add: |
+  #       let g:markdown_fenced_languages = [
+  #         \ 'html',
+  #         \ 'bash=sh',
+  #         \ 'css',
+  #         \ 'javascript',
+  #         \ 'jsx=javascriptreact',
+  #         \ 'tsx=typescriptreact',
+  #         \ 'go',
+  #         \]
+
+# Python related
+- { repo: vim-python/python-syntax, on_ft: python }
+- { repo: Vimjas/vim-python-pep8-indent, on_ft: python }
+- { repo: vim-scripts/python_match.vim, on_ft: python }  # ?
+- { repo: tmhedberg/SimpylFold, on_ft: python }  # ?
+- { repo: raimon49/requirements.txt.vim, on_ft: requirements }
+
+- repo: pearofducks/ansible-vim
+  on_ft: [ ansible, ansible_hosts, jinja2 ]
   hook_add: |
-        let g:markdown_fenced_languages = [
-          \ 'html',
-          \ 'bash=sh',
-          \ 'css',
-          \ 'javascript',
-          \ 'jsx=javascriptreact',
-          \ 'tsx=typescriptreact',
-          \ 'go',
-          \]
+    let g:ansible_extra_keywords_highlight = 1
+    let g:ansible_template_syntaxes = {
+      \   '*.json.j2': 'json',
+      \   '*.(ba)?sh.j2': 'sh',
+      \   '*.ya?ml.j2': 'yaml',
+      \   '*.xml.j2': 'xml',
+      \   '*.conf.j2': 'conf',
+      \   '*.ini.j2': 'ini'
+      \ }
 # }}}
 
 # Coding{{{
@@ -273,3 +318,10 @@
 #   on_path: .*
 #   hook_source: source ~/.config/nvim/core/plugins/vim-gitgutter.vim
 
+
+# TMUX Integration {{{
+- repo: benmills/vimux
+  on_cmd: VimuxRunCommand
+- repo: tmux-plugins/vim-tmux
+  on_ft: tmux.conf
+# }}}
