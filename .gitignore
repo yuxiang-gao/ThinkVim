@@ -1,8 +1,9 @@
 dein/.DS_Store
-colors/
-coc-settings.json
+# colors/
+# coc-settings.json
 tags
 
-./coc-settings.json
-./*.json
-*.json
+# ./coc-settings.json
+# ./*.json
+# *.json
+.netrwhist
