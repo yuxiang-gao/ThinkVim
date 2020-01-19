@@ -80,9 +80,92 @@
     "explorer.icon.collapsed": "▸",
     "explorer.width": 30,
     "explorer.icon.enableNerdfont": true,
+    "explorer.icon.enableVimDevions": true,
+    "explorer.sources": [
+        {
+            "name": "buffer",
+            "expand": true
+        },
+        {
+            "name": "file",
+            "expand": true
+        }
+    ],
+    "explorer.file.column.git.icon.added": "✚",
+    "explorer.file.column.git.icon.deleted": "✖",
+    "explorer.file.column.git.icon.renamed": "➜",
+    "explorer.file.column.git.icon.unmerged": "═",
+    "explorer.file.column.git.icon.untracked": "?",
+    "explorer.file.column.git.icon.modified": "✹",
+    "explorer.file.column.git.icon.ignored": "☒",
+    "explorer.openAction.changeDirectory": false,
+    "explorer.file.showHiddenFiles": true,
+    "explorer.previewAction.onHover": true,
+    "explorer.file.hiddenRules": {
+        "extensions": [
+            "o",
+            "a",
+            "obj",
+            "pyc"
+        ],
+        "filenames": [],
+        "patternMatches": [
+            "^\\."
+        ]
+    },
     "explorer.keyMappings": {
-        "h" : "gotoParent",
-        "l" : "expandOrShrink"
+        "k": "nodePrev",
+        "j": "nodeNext",
+        "*": "toggleSelection",
+        "<tab>": "actionMenu",
+        "h": "collapse",
+        "l": "expand",
+        "J": [
+            "toggleSelection",
+            "normal:j"
+        ],
+        "K": [
+            "toggleSelection",
+            "normal:k"
+        ],
+        "L": "cd",
+        "H": "gotoParent",
+        "gl": "expandRecursive",
+        "gh": "collapseRecursive",
+        "<cr>": "open",
+        "o": "open",
+        "v": "openInVsplit",
+        "i": "openInSplit",
+        "t": "openInTab",
+        "<bs>": "gotoParent",
+        "y": "copyFilepath",
+        "Y": "copyFilename",
+        "c": "copyFile",
+        "x": "cutFile",
+        "p": "pasteFile",
+        "d": "delete",
+        "D": "deleteForever",
+        "a": "addFile",
+        "A": "addDirectory",
+        "r": "rename",
+        ".": "toggleHidden",
+        "R": "refresh",
+        "?": "help",
+        "q": "quit",
+        "X": "systemExecute",
+        "gd": "listDrive",
+        "f": "search",
+        "F": "searchRecursive",
+        "gf": "gotoSource:file",
+        "gb": "gotoSource:buffer",
+        "[[": "sourcePrev",
+        "]]": "sourceNext",
+        "[d": "diagnosticPrev",
+        "]d": "diagnosticNext",
+        "[c": "gitPrev",
+        "]c": "gitNext",
+        "<<": "gitStage",
+        ">>": "gitUnstage"
     },
     // golang
     "go.goplsOptions": {

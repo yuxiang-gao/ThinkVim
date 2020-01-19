@@ -3,7 +3,25 @@ let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
-let g:coc_global_extensions =['coc-html','coc-css','coc-vetur','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-highlight','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml','coc-template','coc-tabnine','coc-marketplace','coc-gitignore','coc-yank','coc-explorer','coc-go']
+let g:coc_global_extensions =['coc-html','coc-css','coc-vetur','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-highlight','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml','coc-template','coc-tabnine','coc-marketplace','coc-gitignore','coc-yank','coc-explorer','coc-go',
+    \ 'coc-tslint-plugin',
+    \ 'coc-sh',
+    \ 'coc-vimlsp',
+    \ 'coc-omnisharp',
+    \ 'coc-texlab',
+    \ 'coc-actions',
+    \ 'coc-vimtex',
+    \ 'coc-terminal',
+    \ 'coc-docker',
+    \ 'coc-ccls',
+    \ 'coc-syntax',
+    \ 'coc-emoji',
+    \ 'coc-word',
+    \ 'coc-tag',
+    \ 'coc-spell-checker',
+    \ 'coc-markmap',
+    \ 'coc-bookmark',
+    \]
 
 augroup MyAutoCmd
   autocmd!
