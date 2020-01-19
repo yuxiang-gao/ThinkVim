@@ -49,6 +49,9 @@ vnoremap k gk
 noremap <leader>tn :tabnew<cr>
 noremap <leader>te :tabedit
 noremap <leader>tm :tabmove
+noremap <leader>td :tabclose<CR>
+noremap <leader>tl :tabnext<CR>
+noremap <leader>th :tabprev<CR>
 
 "buffer
 nnoremap <leader>bc :BufOnly<CR>

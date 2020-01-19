@@ -271,11 +271,14 @@ or use [coc-marketplace](https://github.com/fannheyward/coc-marketplace), which 
 <details><summary><code>Tab</code>👈 Click</summary>
 <p>
 
-| Keys                                            | Mode   | Description |
-| ----------------------------------------------- | ------ | ----------- |
-| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>n</kbd> | Normal | create tab  |
-| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>e</kbd> | Normal | edit tab    |
-| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>m</kbd> | Normal | move tab    |
+| Keys                                            | Mode   | Description  |
+| ----------------------------------------------- | ------ | ------------ |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>n</kbd> | Normal | create tab   |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>e</kbd> | Normal | edit tab     |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>m</kbd> | Normal | move tab     |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>d</kbd> | Normal | close tab    |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>h</kbd> | Normal | previous tab |
+| <kbd>Leader</kbd> + <kbd>t</kbd> + <kbd>l</kbd> | Normal | next tab     |
 
 </p>
 </details>
