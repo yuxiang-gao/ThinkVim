@@ -1,24 +1,31 @@
 " insert keymap like emacs
 inoremap <C-w> <C-[>diwa
-inoremap <C-h> <BS>
+inoremap <C-x> <BS>
 inoremap <C-d> <Del>
 inoremap <C-k>  <ESC>d$a
 inoremap <C-u> <C-G>u<C-U>
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
+" inoremap <C-b> <Left>
+" inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
+" vim style navigation in insert
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " command line alias
 "cnoremap w!! w !sudo tee % >/dev/null
 cnoremap <C-p> <Up>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
+" cnoremap <C-b> <Left>
+" cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
-cnoremap <C-h> <BS>
+cnoremap <C-x> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
+" vim style navigation in command
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+
 
 " Write buffer (save)
 noremap <Leader>w :w<CR>
@@ -33,11 +40,15 @@ nnoremap  [b :bn<CR>
 "delete buffer
 nnoremap <C-x>  :bd<CR>
 
-"switch windw
+" "switch windw
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+" map <silent> <C-h> <Plug>WinMoveLeft
+" map <silent> <C-j> <Plug>WinMoveDown
+" map <silent> <C-k> <Plug>WinMoveUp
+" map <silent> <C-l> <Plug>WinMoveRight
 
 "smart move
 nnoremap j gj

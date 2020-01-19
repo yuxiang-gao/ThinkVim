@@ -76,6 +76,9 @@ let g:which_key_map = {
             \ 'n' : 'new tab',
             \ 'e' : 'edit tab',
             \ 'm' : 'move tab',
+            \ 'd' : 'close tab',
+            \ 'h' : 'prev tab',
+            \ 'l' : 'next tab',
             \ },
       \ }
 let g:which_key_map[' '] = {
