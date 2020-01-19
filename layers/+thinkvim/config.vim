@@ -123,10 +123,18 @@ if dein#tap('coc.nvim')
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
         " coc-explorer
-        noremap <silent> <leader>j :execute 'CocCommand explorer' .
+        noremap <silent> <leader>ja :execute 'CocCommand explorer' .
             \ ' --toggle' .
             \ ' --sources=buffer+,file+' .
             \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
+
+        nmap ge :CocCommand explorer<CR>
+        nmap gE :CocCommand explorer --position=right<CR>
+        execute "nmap <leader>r :CocCommand explorer --reveal=".expand('<sfile>:h')."/package.json<CR>"
+        nmap <leader>jt :CocCommand explorer --position=tab<CR>
+        nmap <leader>j :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;modified;readonly<CR>
+        nmap <leader>jb :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;created;modified;accessed;readonly<CR>
+
 
 
         " terminal

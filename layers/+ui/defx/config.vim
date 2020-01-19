@@ -105,7 +105,11 @@ function! s:defx_mappings() abort
 	" Defx window keyboard mappings
 	setlocal signcolumn=no
 
-	nnoremap <silent><buffer><expr> <CR>  defx#do_action('drop')
+	nnoremap <silent><buffer><expr> <CR>
+		\ defx#is_directory() ?
+		\ defx#do_action('open_directory') :
+		\ defx#do_action('multi', ['drop', 'quit'])
+
 	" nnoremap <silent><buffer><expr> l     <SID>defx_toggle_tree()
 	" nnoremap <silent><buffer><expr><nowait> l     <SID>defx_toggle_tree()
 	" nnoremap <silent><buffer><expr><nowait> h     defx#do_action('close_tree')
@@ -129,6 +133,7 @@ function! s:defx_mappings() abort
 	nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')
 	nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
 	nnoremap <silent><buffer><expr> q     defx#do_action('quit')
+	nnoremap <silent><buffer><expr> <leader>e    defx#do_action('quit')
 	nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
 		\ ':<C-u>wincmd w<CR>' :
 		\ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
@@ -142,8 +147,8 @@ function! s:defx_mappings() abort
 	nnoremap <silent><buffer><expr><nowait> m  defx#do_action('move')
 	nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
 
-	nnoremap <silent><buffer><expr><nowait> <Space>
-		\ defx#do_action('toggle_select') . 'j'
+	" nnoremap <silent><buffer><expr><nowait> <Space>
+		" \ defx#do_action('toggle_select') . 'j'
 
 	nnoremap <silent><buffer><expr> '      defx#do_action('toggle_select') . 'j'
 	nnoremap <silent><buffer><expr> *      defx#do_action('toggle_select_all')
