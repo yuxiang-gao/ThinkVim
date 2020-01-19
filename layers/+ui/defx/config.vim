@@ -5,9 +5,24 @@ call defx#custom#option('_', {
 	\ 'split': 'vertical',
 	\ 'direction': 'topleft',
 	\ 'show_ignored_files': 0,
+	\ 'toggle': 1,
+    \ 'resume': 1
 	\ })
 
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '',
+      \ 'selected_icon': '',
+      \ })
 
+call defx#custom#column('icon', {
+      \ 'directory_icon': '',
+      \ 'opened_icon': '',
+      \ 'root_icon': ' ',
+      \ })
+
+	call defx#custom#column('filename', {
+	      \ 'max_width': -90,
+	      \ })
 " Events
 " ---
 
@@ -92,8 +107,11 @@ function! s:defx_mappings() abort
 
 	nnoremap <silent><buffer><expr> <CR>  defx#do_action('drop')
 	" nnoremap <silent><buffer><expr> l     <SID>defx_toggle_tree()
-	nnoremap <silent><buffer><expr><nowait> l     <SID>defx_toggle_tree()
-	nnoremap <silent><buffer><expr><nowait> h     defx#do_action('close_tree')
+	" nnoremap <silent><buffer><expr><nowait> l     <SID>defx_toggle_tree()
+	" nnoremap <silent><buffer><expr><nowait> h     defx#do_action('close_tree')
+  nnoremap <silent><buffer><expr> h defx#do_action('call', 'DefxSmartH')
+  nnoremap <silent><buffer><expr> l defx#do_action('call', 'DefxSmartL')
+  nnoremap <silent><buffer><expr> o defx#do_action('call', 'DefxSmartL')
 	nnoremap <silent><buffer><expr><nowait> H     defx#async_action('cd', ['..'])
 	nnoremap <silent><buffer><expr><nowait> L     defx#async_action('open')
 	nnoremap <silent><buffer><expr><nowait> J     defx#do_action('toggle_select') . 'j'
@@ -207,3 +225,62 @@ function! s:find_file_explorer() abort
 	return s:file_explorer
 endfunction
 
+" in this function we should vim-choosewin if possible
+function! DefxSmartL(_)
+  if defx#is_directory()
+    call defx#call_action('open_tree')
+    normal! j
+  else
+    let filepath = defx#get_candidate()['action__path']
+    if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+      if exists(':ChooseWin') == 2
+        ChooseWin
+      else
+        let input = input('ChooseWin No./Cancel(n): ')
+        if input ==# 'n' | return | endif
+        if input == winnr() | return | endif
+        exec input . 'wincmd w'
+      endif
+      exec 'e' filepath
+    else
+      exec 'wincmd w'
+      exec 'e' filepath
+    endif
+  endif
+endfunction
+
+function! DefxSmartH(_)
+  " if cursor line is first line, or in empty dir
+  if line('.') ==# 1 || line('$') ==# 1
+    return defx#call_action('cd', ['..'])
+  endif
+
+  " candidate is opend tree?
+  if defx#is_opened_tree()
+    return defx#call_action('close_tree')
+  endif
+
+  " parent is root?
+  let s:candidate = defx#get_candidate()
+  let s:parent = fnamemodify(s:candidate['action__path'], s:candidate['is_directory'] ? ':p:h:h' : ':p:h')
+  let sep = s:SYS.isWindows ? '\\' :  '/'
+  if s:trim_right(s:parent, sep) == s:trim_right(b:defx.paths[0], sep)
+    return defx#call_action('cd', ['..'])
+  endif
+
+  " move to parent.
+  call defx#call_action('search', s:parent)
+
+  " if you want close_tree immediately, enable below line.
+  call defx#call_action('close_tree')
+endfunction
+
+function! DefxYarkPath(_) abort
+  let candidate = defx#get_candidate()
+  let @+ = candidate['action__path']
+  echo 'yanked: ' . @+
+endfunction
+
+function! s:trim_right(str, trim)
+  return substitute(a:str, printf('%s$', a:trim), '', 'g')
+endfunction

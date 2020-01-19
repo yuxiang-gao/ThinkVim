@@ -14,6 +14,7 @@
 
 
 - repo: itchyny/lightline.vim
+  depends: nord-vim
   hook_source: source  $VIM_PATH/layers/+ui/lightline/config.vim
 # - repo: itchyny/lightline-powerful 
 
@@ -84,6 +85,16 @@
       function! StartifyEntryFormat()
         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
       endfunction
+      if has('nvim')
+        autocmd TabNewEntered * Startify
+      else
+        autocmd VimEnter * let t:startify_new_tab = 1
+        autocmd BufEnter *
+              \ if !exists('t:startify_new_tab') && empty(expand('%')) |
+              \   let t:startify_new_tab = 1 |
+              \   Startify |
+              \ endif
+      endif
 - repo: junegunn/vim-easy-align
   # on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
 
@@ -135,6 +146,9 @@
         let g:EasyMotion_keys = 'fjdkswbeoavn'
         let g:EasyMotion_smartcase = 1
         let g:EasyMotion_use_smartsign_us = 1
+
+- repo: godlygeek/tabular
+  on_cmd: Tab
 # }}}
 
 # File manager{{{
@@ -206,7 +220,7 @@
   on_ft: go
   hook_source: source  $VIM_PATH/layers/+lang/go/config.vim
 
-- repo: tpope/vim-markdown
+- repo: plasticboy/vim-markdown
   on_ft: markdown
   # hook_add: |
   #       let g:markdown_fenced_languages = [
@@ -284,7 +298,9 @@
   on_ft: [markdown,pandoc.markdown,rmd]
   hook_post_source: 'call mkdp#util#install()'
   hook_source: |
-      let g:mkdp_auto_start = 1
+      let g:mkdp_auto_start = 0
+      let g:mkdp_auto_close = 1
+      let g:mkdp_browser = ''
 - repo: junegunn/goyo.vim
   on_cmd: Goyo
   hook_source: source  $VIM_PATH/layers/+tools/goyo/config.vim
@@ -309,11 +325,14 @@
 
 - repo: machakann/vim-sandwich
   on_map: { vnx: [<Plug>(operator-sandwich-,<Plug>(textobj-sandwich-]}
+  # sa
 
 - repo: osyo-manga/vim-textobj-multiblock
   depends: vim-textobj-user
   on_map: { ox: <Plug> }
   hook_add:  let g:textobj_multiblock_no_default_key_mappings = 1
+
+# - repo:  tpope/vim-surround 
 
 # }}}
 

@@ -1,16 +1,32 @@
 let g:which_key_map =  {}
 let g:which_key_map = {
       \ 'name' : '+ThinkVim root ' ,
-      \ '1' : 'select window-1'      ,
-      \ '2' : 'select window-2'      ,
-      \ '3' : 'select window-3'      ,
-      \ '4' : 'select window-4'      ,
-      \ '5' : 'select window-5'      ,
-      \ '6' : 'select window-6'      ,
-      \ '7' : 'select window-7'      ,
-      \ '8' : 'select window-8'      ,
-      \ '9' : 'select window-9'      ,
-      \ '0' : 'select window-10'      ,
+      \ '-' : 'choose window by {prompt char}' ,
+      \ 'w' : {
+            \ 'name' : '+window-operation',
+            \ '1' : 'select window-1'      ,
+            \ '2' : 'select window-2'      ,
+            \ '3' : 'select window-3'      ,
+            \ '4' : 'select window-4'      ,
+            \ '5' : 'select window-5'      ,
+            \ '6' : 'select window-6'      ,
+            \ '7' : 'select window-7'      ,
+            \ '8' : 'select window-8'      ,
+            \ '9' : 'select window-9'      ,
+            \ '0' : 'select window-10'      ,
+            \ 'q' : 'close window'         ,
+            \ 'qa' : 'close all window'   ,
+      \},
+      \ 'z' : 'Zoom pane',
+      \ 't' : {
+            \ 'name' : '+tab-operation',
+            \ 'n' : 'new tab',
+            \ 'e' : 'edit tab',
+            \ 'm' : 'move tab',
+            \ 'd' : 'close tab',
+            \ 'h' : 'prev tab',
+            \ 'l' : 'next tab',
+            \ },
       \ 'a' : {
             \ 'name' : '+coc-code-action',
             \ 'c' : 'code action',
@@ -20,25 +36,25 @@ let g:which_key_map = {
             \ 'b' : 'buffer list',
             \ 'c' : 'keep current buffer',
             \ 'o' : 'keep input buffer',
+            \ 'd' : 'delete buffer',
             \ },
       \ 'e' : 'open file explorer' ,
-      \ '-' : 'choose window by {prompt char}' ,
       \ 'd' : 'search cursor word on Dash.app' ,
       \ 'G' : 'distraction free writing' ,
       \ 'F' : 'find current file' ,
       \ 'f' : {
             \ 'name' : '+search {files cursorword word outline}',
-            \ 'f' : 'find file',
-            \ 'r' : 'search {word}',
+            \ 'r' : 'find file',
+            \ 'f' : 'search {word}',
             \ 'c' : 'change colorscheme',
             \ 'w' : 'search cursorword',
             \ 'v' : 'search outline',
             \ },
       \ 'm' : 'open mundotree' ,
-      \ 'w' : 'save file',
+      \ 's' : 'save file',
       \ 'j' : 'open coc-explorer',
-      \ 's' : 'open startify screen',
-      \ 'p' : 'edit pluginsconfig {filename}',
+      \ 'st' : 'open startify screen',
+      \ 'ep' : 'edit pluginsconfig {filename}',
       \ 'x' : 'coc cursors operate',
       \ 'g'  :{
                 \'name':'+git-operate',
@@ -71,15 +87,6 @@ let g:which_key_map = {
             \ 'name' : '+coc-quickfix',
             \ 'f' : 'coc fixcurrent',
             \ },
-      \ 't' : {
-            \ 'name' : '+tab-operate',
-            \ 'n' : 'new tab',
-            \ 'e' : 'edit tab',
-            \ 'm' : 'move tab',
-            \ 'd' : 'close tab',
-            \ 'h' : 'prev tab',
-            \ 'l' : 'next tab',
-            \ },
       \ }
 let g:which_key_map[' '] = {
       \ 'name' : '+easymotion-jumpto-word ' ,
@@ -87,6 +94,7 @@ let g:which_key_map[' '] = {
       \ 'f' : ['<plug>(easymotion-f)' , 'find {char} to the left'],
       \ 'w' : ['<plug>(easymotion-w)' , 'beginning of word forward'],
       \ }
+
 
 let g:which_key_localmap ={
       \ 'name' : '+LocalLeaderKey'  ,
@@ -101,6 +109,9 @@ let g:which_key_localmap ={
             \ 'C'    : 'go callers',
             \ 's'    : 'go callstack',
             \ },
+      \ 's':{'name': '+Sandwich'},
+      \ 'p':{'name': '+Python'},
+      \ 'z':{'name': '+denite'},
       \ }
 
 let g:which_key_rsbgmap = {

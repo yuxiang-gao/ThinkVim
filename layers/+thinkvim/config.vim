@@ -5,6 +5,15 @@ if dein#tap('denite.nvim')
         noremap zl :<C-u>call <SID>my_denite_outline(&filetype)<CR>
         noremap zL :<C-u>call <SID>my_denite_decls(&filetype)<CR>
         noremap zT :<C-u>call <SID>my_denite_file_rec_goroot()<CR>
+        noremap <localleader>zb :<C-u>Denite buffer<CR>
+        noremap <localleader>zf :<C-u>Denite file<CR>
+        noremap <localleader>zj :<C-u>Denite jump<CR>
+        noremap <localleader>zh :<C-u>Denite help<CR>
+        noremap <localleader>zl :<C-u>Denite line<CR>
+        noremap <localleader>zs :<C-u>Denite grep<CR>
+        noremap <localleader>zc :<C-u>Denite source<CR>
+        noremap <localleader>zt :<C-u>Denite tag<CR>
+        noremap <localleader>zC :<C-u>Denite command<CR>
 
         nnoremap <silent> <Leader>gl :<C-u>Denite gitlog:all<CR>
 	    nnoremap <silent> <Leader>gh :<C-u>Denite gitbranch<CR>
@@ -32,8 +41,13 @@ if dein#tap('denite.nvim')
 endif
 
 if dein#tap('coc.nvim')
-        " Using CocList
+        " Using CocList*
         " Show all diagnostics
+        nnoremap <silent> <leader>cb  :<C-u>CocList branches<cr>
+        nnoremap <silent> <leader>cg  :<C-u>CocList gfiles<cr>
+        nnoremap <silent> <leader>cy  :<C-u>CocList yank<cr>
+        nnoremap <silent> <leader>cl  :<C-u>CocList lists<cr>
+        nnoremap <silent> <leader>cf  :<C-u>CocList files<cr>
         nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
         " Manage extensions
         nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
@@ -55,8 +69,8 @@ if dein#tap('coc.nvim')
         " Remap for rename current word
         nmap <leader>cn <Plug>(coc-rename)
         " Remap for format selected region
-        vmap <leader>cf  <Plug>(coc-format-selected)
-        nmap <leader>cf  <Plug>(coc-format-selected)
+        vmap <leader>cF  <Plug>(coc-format-selected)
+        nmap <leader>cF  <Plug>(coc-format-selected)
         " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
         xmap <leader>ca  <Plug>(coc-codeaction-selected)
         nmap <leader>ca  <Plug>(coc-codeaction-selected)
@@ -113,13 +127,21 @@ if dein#tap('coc.nvim')
             \ ' --toggle' .
             \ ' --sources=buffer+,file+' .
             \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
+
+
+        " terminal
+         nnoremap <silent> <Leader>ct :CocCommand terminal.Toggle<CR>
+        " Python
+         nnoremap <silent> <LocalLeader>pl :CocCommand python.runLinting<CR>
+         nnoremap <silent> <LocalLeader>pr :CocCommand python.execInTerminal<CR>
+         nnoremap <silent> <LocalLeader>pt :CocCommand python.createTerminal<CR>
 endif
 
 if dein#tap('fzf.vim')
         nnoremap <silent> <leader>fc :Colors<CR>
-        nnoremap <silent> <leader>bb :Buffers<CR>
-        nnoremap <silent> <leader>ff :call Fzf_dev()<CR>
-        nnoremap <silent> <leader>fr :Rg<CR>
+        nnoremap <silent> <leader>fb :Buffers<CR>
+        nnoremap <silent> <leader>fr :call Fzf_dev()<CR>
+        nnoremap <silent> <leader>ff :Rg<CR>
         nnoremap <silent> <leader>fw :Rg <C-R><C-W><CR>
 endif
 
@@ -130,6 +152,11 @@ if dein#tap('vim-easy-align')
     nmap ga <Plug>(EasyAlign)
 endif
 
+if dein#tap('tabular')
+    " Hit Alt-Shift-A then type a character you want to align by
+    nmap <leader>a :Tabularize /
+    vmap <leader>a :Tabularize /
+endif
 
 if dein#tap('vim-go')
 	 nnoremap <silent> <LocalLeader>gi :GoImpl<CR>
@@ -149,7 +176,7 @@ if dein#tap('vim-easygit')
 endif
 
 if dein#tap('magit.vim')
-	nnoremap <silent> mg :Magit<CR>
+	nnoremap <silent> <Leader>gm :Magit<CR>
 endif
 
 if dein#tap('gina.vim')
@@ -216,7 +243,7 @@ endif
 
 
 if dein#tap('vim-startify')
-    nnoremap <silent> <leader>s :Startify<CR>
+    nnoremap <silent> <leader>st :Startify<CR>
 endif
 
 if dein#tap('vim-quickrun')
@@ -276,15 +303,15 @@ if dein#tap('vim-niceblock')
 endif
 
 if dein#tap('vim-sandwich')
-     nmap <silent> sa <Plug>(operator-sandwich-add)
-     xmap <silent> sa <Plug>(operator-sandwich-add)
-     omap <silent> sa <Plug>(operator-sandwich-g@)
-     nmap <silent> sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-     xmap <silent> sd <Plug>(operator-sandwich-delete)
-     nmap <silent> sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-     xmap <silent> sr <Plug>(operator-sandwich-replace)
-     nmap <silent> sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-     nmap <silent> srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+     nmap <silent> <LocalLeader>sa <Plug>(operator-sandwich-add)
+     xmap <silent> <LocalLeader>sa <Plug>(operator-sandwich-add)
+     omap <silent> <LocalLeader>sa <Plug>(operator-sandwich-g@)
+     nmap <silent> <LocalLeader>sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+     xmap <silent> <LocalLeader>sd <Plug>(operator-sandwich-delete)
+     nmap <silent> <LocalLeader>sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+     xmap <silent> <LocalLeader>sr <Plug>(operator-sandwich-replace)
+     nmap <silent> <LocalLeader>sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+     nmap <silent> <LocalLeader>srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
      omap ib <Plug>(textobj-sandwich-auto-i)
      xmap ib <Plug>(textobj-sandwich-auto-i)
      omap ab <Plug>(textobj-sandwich-auto-a)
@@ -304,4 +331,11 @@ if dein#tap('vim-textobj-multiblock')
 	omap <silent> ib <Plug>(textobj-multiblock-i)
 	xmap <silent> ab <Plug>(textobj-multiblock-a)
 	xmap <silent> ib <Plug>(textobj-multiblock-i)
+endif
+
+if dein#tap('iamcco/markdown-preview.nvim')
+" example
+nmap <localleader>mp <Plug>MarkdownPreview
+nmap <localleader>ms <Plug>MarkdownPreviewStop
+nmap <localleader>md <Plug>MarkdownPreviewToggle
 endif
