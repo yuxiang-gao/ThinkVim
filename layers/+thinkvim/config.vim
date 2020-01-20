@@ -285,7 +285,7 @@ if dein#tap('comfortable-motion.vim')
     nnoremap <silent> <localleader>j :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
     nnoremap <silent> <localleader>k :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
     nnoremap <silent> <localleader>jj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-    nnoremap <silent> <localleader>jk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+    nnoremap <silent> <localleader>kk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
     noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 endif

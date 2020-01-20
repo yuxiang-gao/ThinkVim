@@ -112,6 +112,10 @@ let g:which_key_localmap ={
       \ 's':{'name': '+Sandwich'},
       \ 'p':{'name': '+Python'},
       \ 'z':{'name': '+denite'},
+      \ 'j': 'half pagedown',
+      \ 'jj': 'pagedown',
+      \ 'k': 'half pageup',
+      \ 'kk': 'pageup',
       \ }
 
 let g:which_key_rsbgmap = {
