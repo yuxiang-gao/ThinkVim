@@ -80,7 +80,7 @@ let g:which_key_map = {
               \ 'n'    : 'coc Rename',
               \ 's'    : 'coc Isymbols',
               \ 'g'    : 'coc Gitstatus',
-              \ 'f'    : 'coc Format',
+              \ 'f'    : 'coc files',
               \ 'm'    : 'coc search word to multiple cursors',
               \ },
       \ 'q' : {

@@ -91,7 +91,7 @@
     //sessions
     "session.directory": "~/.cache/vim/session",
     //coc-python
-    "python.setInterpreter": "/Users/yuxianggao/anaconda3/bin/python",
+    "python.setInterpreter": " /Users/yuxianggao/.pyenv/versions/miniconda3-latest/bin/python",
     "python.autoComplete.addBrackets": true,
     "python.formatting.provider": "black",
     // coc-explorer
