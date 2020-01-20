@@ -98,7 +98,7 @@ if dein#tap('coc.nvim')
 		nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 		nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
         " multiple cursors
-        nmap <expr> <silent> <C-m> <SID>select_current_word()
+        nmap <expr> <silent> <C-d> <SID>select_current_word()
         nmap <silent> <C-c> <Plug>(coc-cursors-position)
         nmap <silent> <C-s> <Plug>(coc-cursors-word)
         xmap <silent> <C-s> <Plug>(coc-cursors-range)
@@ -282,10 +282,10 @@ endif
 
 
 if dein#tap('comfortable-motion.vim')
-    nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-    nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-    nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-    nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+    nnoremap <silent> <localleader>j :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+    nnoremap <silent> <localleader>k :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+    nnoremap <silent> <localleader>jj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+    nnoremap <silent> <localleader>jk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
     noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 endif
