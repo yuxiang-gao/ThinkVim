@@ -63,53 +63,6 @@
 - repo: chemzqm/denite-git
   depends: denite.nvim
   on_cmd: [gitfiles, gitbranch, gitchanged, gitstatus, gitlog]
-  hook_add: |
-            call denite#custom#map(
-                  \ 'normal',
-                  \ 'a',
-                  \ '<denite:do_action:add>',
-                  \ 'noremap'
-                  \)
-
-            call denite#custom#map(
-                  \ 'normal',
-                  \ 'd',
-                  \ '<denite:do_action:delete>',
-                  \ 'noremap'
-                  \)
-
-            call denite#custom#map(
-                  \ 'normal',
-                  \ 'r',
-                  \ '<denite:do_action:reset>',
-                  \ 'noremap'
-                  \)
-                  call denite#custom#map(
-                  \ 'normal',
-                  \ 'o',
-                  \ '<denite:do_action:open>',
-                  \ 'noremap'
-                  \)
-
-            call denite#custom#map(
-                  \ 'normal',
-                  \ 'C',
-                  \ '<denite:do_action:checkout>',
-                  \ 'noremap'
-                  \)
-            call denite#custom#map(
-                  \ 'normal',
-                  \ 'c',
-                  \ '<denite:do_action:commit>',
-                  \ 'noremap'
-                  \)
-
-            call denite#custom#map(
-                  \ 'm',
-                  \ 'r',
-                  \ '<denite:do_action:merge>',
-                  \ 'noremap'
-                  \)
 # }}}
 
 # Interface{{{
