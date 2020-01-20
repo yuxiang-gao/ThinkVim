@@ -175,10 +175,6 @@ set backupdir=$DATA_PATH/backup/,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set viewdir=$DATA_PATH/view/
 set nospell spellfile=$VIM_PATH/spell/en.utf-8.add
 
-"python
-let g:python2_host_prog = '$HOME/.pyenv/versions/vim2/bin/python' " '/usr/local/bin/python2' " '${HOME}/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '$HOME/.pyenv/versions/vim3/bin/python' " '/usr/local/bin/python3' " '${HOME}/.pyenv/versions/neovim3/bin/python'
-
 " History saving
 set history=1000
 if has('nvim')
