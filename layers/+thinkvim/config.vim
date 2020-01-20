@@ -1,19 +1,19 @@
 "Plugin key settings
 
 if dein#tap('denite.nvim')
-        nnoremap <silent><LocalLeader>m :<C-u>Denite menu<CR>
+        nnoremap <silent><LocalLeader>dm :<C-u>Denite menu<CR>
         noremap zl :<C-u>call <SID>my_denite_outline(&filetype)<CR>
         noremap zL :<C-u>call <SID>my_denite_decls(&filetype)<CR>
         noremap zT :<C-u>call <SID>my_denite_file_rec_goroot()<CR>
-        noremap <localleader>zb :<C-u>Denite buffer<CR>
-        noremap <localleader>zf :<C-u>Denite file<CR>
-        noremap <localleader>zj :<C-u>Denite jump<CR>
-        noremap <localleader>zh :<C-u>Denite help<CR>
-        noremap <localleader>zl :<C-u>Denite line<CR>
-        noremap <localleader>zs :<C-u>Denite grep<CR>
-        noremap <localleader>zc :<C-u>Denite source<CR>
-        noremap <localleader>zt :<C-u>Denite tag<CR>
-        noremap <localleader>zC :<C-u>Denite command<CR>
+        noremap <LocalLeader>db :<C-u>Denite buffer<CR>
+        noremap <LocalLeader>df :<C-u>Denite file<CR>
+        noremap <LocalLeader>dj :<C-u>Denite jump<CR>
+        noremap <LocalLeader>dh :<C-u>Denite help<CR>
+        noremap <LocalLeader>dl :<C-u>Denite line<CR>
+        noremap <LocalLeader>ds :<C-u>Denite grep<CR>
+        noremap <LocalLeader>dc :<C-u>Denite source<CR>
+        noremap <LocalLeader>dt :<C-u>Denite tag<CR>
+        noremap <LocalLeader>dC :<C-u>Denite command<CR>
 
         nnoremap <silent> <Leader>gl :<C-u>Denite gitlog:all<CR>
 	    nnoremap <silent> <Leader>gh :<C-u>Denite gitbranch<CR>
@@ -187,7 +187,7 @@ endif
 " 	nnoremap <silent> <Leader>gb :Gblame<CR>
 " 	nnoremap <silent> <Leader>gB :Gbrowse<CR>
 " 	nnoremap <silent> <Leader>gS :Gstatus<CR>
-" 	" nnoremap <silent> <localleader>gp :Gpush<CR>
+" 	" nnoremap <silent> <LocalLeader>gp :Gpush<CR>
 " endif
 
 if dein#tap('vim-fugitive')
@@ -282,10 +282,10 @@ endif
 
 
 if dein#tap('comfortable-motion.vim')
-    nnoremap <silent> <localleader>j :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-    nnoremap <silent> <localleader>k :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-    nnoremap <silent> <localleader>jj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-    nnoremap <silent> <localleader>kk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+    nnoremap <silent> <LocalLeader>j :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+    nnoremap <silent> <LocalLeader>k :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+    nnoremap <silent> <LocalLeader>jj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+    nnoremap <silent> <LocalLeader>kk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
     noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 endif
@@ -312,7 +312,7 @@ if dein#tap('vim-startify')
 endif
 
 if dein#tap('vim-quickrun')
-    nnoremap <silent> <localleader>r :QuickRun<CR>
+    nnoremap <silent> <LocalLeader>r :QuickRun<CR>
 endif
 
 if dein#tap('dash.vim')
@@ -332,7 +332,7 @@ if dein#tap('splitjoin.vim')
 endif
 
 if dein#tap('vista.vim')
-        nnoremap <silent><localleader>v :Vista!!<CR>
+        nnoremap <silent><LocalLeader>v :Vista!!<CR>
         nnoremap <silent><leader>fv     :Vista finder coc<CR>
 endif
 
@@ -349,7 +349,7 @@ endif
 
 if dein#tap('vim-which-key')
 		nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-		nnoremap <silent> <localleader> :<c-u>WhichKey  ';'<CR>
+		nnoremap <silent> <LocalLeader> :<c-u>WhichKey  ';'<CR>
 		nnoremap <silent>[              :<c-u>WhichKey  '['<CR>
 		nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
 endif
@@ -398,9 +398,9 @@ if dein#tap('vim-textobj-multiblock')
 	xmap <silent> ib <Plug>(textobj-multiblock-i)
 endif
 
-if dein#tap('iamcco/markdown-preview.nvim')
-" example
-nmap <localleader>mp <Plug>MarkdownPreview
-nmap <localleader>ms <Plug>MarkdownPreviewStop
-nmap <localleader>md <Plug>MarkdownPreviewToggle
-endif
+" if dein#tap('iamcco/markdown-preview.nvim')
+"     " example
+"     nmap <LocalLeader>mp <Plug>MarkdownPreview
+"     nmap <LocalLeader>ms <Plug>MarkdownPreviewStop
+"     nmap <LocalLeader>md <Plug>MarkdownPreviewToggle
+" endif

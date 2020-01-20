@@ -1,3 +1,4 @@
+imap jk <Esc>
 " insert keymap like emacs
 inoremap <C-w> <C-[>diwa
 inoremap <C-x> <BS>
