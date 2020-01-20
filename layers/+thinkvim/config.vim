@@ -128,12 +128,12 @@ if dein#tap('coc.nvim')
             \ ' --sources=buffer+,file+' .
             \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
 
-        nmap ge :CocCommand explorer<CR>
-        nmap gE :CocCommand explorer --position=right<CR>
-        execute "nmap <leader>r :CocCommand explorer --reveal=".expand('<sfile>:h')."/package.json<CR>"
-        nmap <leader>jt :CocCommand explorer --position=tab<CR>
+        " nmap ge :CocCommand explorer<CR>
+        " nmap gE :CocCommand explorer --position=right<CR>
+        " execute "nmap <leader>r :CocCommand explorer --reveal=".expand('<sfile>:h')."/package.json<CR>"
+        " nmap <leader>jt :CocCommand explorer --position=tab<CR>
         nmap <leader>j :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;modified;readonly<CR>
-        nmap <leader>jb :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;created;modified;accessed;readonly<CR>
+        " nmap <leader>cfb :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;created;modified;accessed;readonly<CR>
 
 
 
@@ -174,13 +174,66 @@ if dein#tap('vim-go')
 	 nnoremap <silent> <LocalLeader>gs :GoCallstack<CR>
 endif
 
-if dein#tap('vim-easygit')
-	nnoremap <silent> <Leader>gd :Gdiff<CR>
-	nnoremap <silent> <Leader>gc :Gcommit<CR>
-	nnoremap <silent> <Leader>gb :Gblame<CR>
-	nnoremap <silent> <Leader>gB :Gbrowse<CR>
-	nnoremap <silent> <Leader>gS :Gstatus<CR>
-	" nnoremap <silent> <localleader>gp :Gpush<CR>
+" if dein#tap('vim-easygit')
+" 	nnoremap <silent> <Leader>gd :Gdiff<CR>
+"     nnoremap <silent> <Leader>ga :Gadd<space>
+" 	nnoremap <silent> <Leader>gc :Gcommit<CR>
+"     nnoremap <silent> <Leader>gp :Gpull<CR>
+"     nnoremap <silent> <Leader>gP :Gpush<CR>
+" 	nnoremap <silent> <Leader>gb :Gblame<CR>
+" 	nnoremap <silent> <Leader>gB :Gbrowse<CR>
+" 	nnoremap <silent> <Leader>gS :Gstatus<CR>
+" 	" nnoremap <silent> <localleader>gp :Gpush<CR>
+" endif
+
+if dein#tap('vim-fugitive')
+	nnoremap <silent> <Leader>gd :Git diff<CR>
+    nnoremap <silent> <Leader>ga :Git add<space>
+	nnoremap <silent> <Leader>gc :Git commit<CR>
+    nnoremap <silent> <Leader>gp :Git pull<CR>
+    nnoremap <silent> <Leader>gP :Git push<CR>
+	nnoremap <silent> <Leader>gb :Git blame<CR>
+	nnoremap <silent> <Leader>gB :Git browse<CR>
+	nnoremap <silent> <Leader>gS :Git status<CR>
+endif
+
+if dein#tap('chemzqm/denite-git')
+    call denite#custom#map(
+          \ 'normal',
+          \ 'a',
+          \ '<denite:do_action:add>',
+          \ 'noremap'
+          \)
+    call denite#custom#map(
+          \ 'normal',
+          \ 'd',
+          \ '<denite:do_action:delete>',
+          \ 'noremap'
+          \)
+    call denite#custom#map(
+          \ 'normal',
+          \ 'r',
+          \ '<denite:do_action:reset>',
+          \ 'noremap'
+          \)
+    call denite#custom#map(
+          \ 'normal',
+          \ 'c,
+          \ '<denite:do_action:commit>',
+          \ 'noremap'
+          \)
+    call denite#custom#map(
+          \ 'normal',
+          \ 'C',
+          \ '<denite:do_action:checkout>',
+          \ 'noremap'
+          \)
+    call denite#custom#map(
+          \ 'normal',
+          \ 'b',
+          \ '<denite:do_action:branch>',
+          \ 'noremap'
+          \)
 endif
 
 if dein#tap('magit.vim')

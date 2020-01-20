@@ -1,4 +1,4 @@
-let g:lightline = {
+let g:lightline = extend(get(g:, 'lightline', {}),{
     \   'colorscheme': 'nord',
     \   'active': {
     \       'left': [ [ 'lineMode', 'mode', 'paste' ],
@@ -48,7 +48,7 @@ let g:lightline = {
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
-\ }
+\ }, 'keep')
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
