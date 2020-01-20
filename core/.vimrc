@@ -128,7 +128,8 @@ endif
 
 " Initialize user favorite colorscheme
 call theme#init()
-call etc#util#source_file('core/color.vim')
+" call etc#util#source_file('core/color.vim')
+colorscheme nord
 
 set secure
 
