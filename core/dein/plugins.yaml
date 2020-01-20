@@ -138,6 +138,7 @@
         call which_key#register(';', 'g:which_key_localmap')
         call which_key#register(']', 'g:which_key_rsbgmap')
         call which_key#register('[', 'g:which_key_lsbgmap')
+        
 - repo: easymotion/vim-easymotion
   on_map: { n: <Plug> }
   hook_source: |

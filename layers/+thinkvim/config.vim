@@ -127,10 +127,10 @@ if dein#tap('coc.nvim')
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
         " coc-explorer
-        noremap <silent> <leader>ja :execute 'CocCommand explorer' .
-            \ ' --toggle' .
-            \ ' --sources=buffer+,file+' .
-            \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
+        " noremap <silent> <leader>ja :execute 'CocCommand explorer' .
+        "     \ ' --toggle' .
+        "     \ ' --sources=buffer+,file+' .
+        "     \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
 
         " nmap ge :CocCommand explorer<CR>
         " nmap gE :CocCommand explorer --position=right<CR>
