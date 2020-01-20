@@ -59,6 +59,57 @@
   hook_source: |
         source  $VIM_PATH/layers/+completion/denite/config.vim
         source  $VIM_PATH/layers/+completion/denite/+denite_menu.vim
+
+- repo: chemzqm/denite-git
+  depends: denite.nvim
+  on_cmd: [gitfiles, gitbranch, gitchanged, gitstatus, gitlog]
+  hook_add: |
+            call denite#custom#map(
+                  \ 'normal',
+                  \ 'a',
+                  \ '<denite:do_action:add>',
+                  \ 'noremap'
+                  \)
+
+            call denite#custom#map(
+                  \ 'normal',
+                  \ 'd',
+                  \ '<denite:do_action:delete>',
+                  \ 'noremap'
+                  \)
+
+            call denite#custom#map(
+                  \ 'normal',
+                  \ 'r',
+                  \ '<denite:do_action:reset>',
+                  \ 'noremap'
+                  \)
+                  call denite#custom#map(
+                  \ 'normal',
+                  \ 'o',
+                  \ '<denite:do_action:open>',
+                  \ 'noremap'
+                  \)
+
+            call denite#custom#map(
+                  \ 'normal',
+                  \ 'C',
+                  \ '<denite:do_action:checkout>',
+                  \ 'noremap'
+                  \)
+            call denite#custom#map(
+                  \ 'normal',
+                  \ 'c',
+                  \ '<denite:do_action:commit>',
+                  \ 'noremap'
+                  \)
+
+            call denite#custom#map(
+                  \ 'm',
+                  \ 'r',
+                  \ '<denite:do_action:merge>',
+                  \ 'noremap'
+                  \)
 # }}}
 
 # Interface{{{
@@ -184,10 +235,11 @@
 
 - { repo: lambdalisue/gina.vim, on_cmd: Gina }
 
-- repo: chemzqm/vim-easygit
-  on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
-  hook_source: let g:easygit_enable_command = 1
-
+# - repo: chemzqm/vim-easygit
+#   on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
+#   hook_source: let g:easygit_enable_command = 1
+- repo: tpope/vim-fugitive
+  on_cmd: [Git, G, Gadd, Gcd,  Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
 
 
 # }}}
