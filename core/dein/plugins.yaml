@@ -14,7 +14,6 @@
 
 
 - repo: itchyny/lightline.vim
-  depends: nord-vim
   hook_source: source  $VIM_PATH/layers/+ui/lightline/config.vim
 # - repo: itchyny/lightline-powerful 
 
