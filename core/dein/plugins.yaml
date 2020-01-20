@@ -332,14 +332,20 @@
   depends: vim-operator-user
   on_map: { vnx: <Plug> }
 
-- repo: machakann/vim-sandwich
-  on_map: { vnx: [<Plug>(operator-sandwich-,<Plug>(textobj-sandwich-]}
-  # sa
-
 - repo: osyo-manga/vim-textobj-multiblock
   depends: vim-textobj-user
   on_map: { ox: <Plug> }
   hook_add:  let g:textobj_multiblock_no_default_key_mappings = 1
+
+- repo: machakann/vim-sandwich
+  on_map: { vnx: [<Plug>(operator-sandwich-,<Plug>(textobj-sandwich-]}
+  # hook_add: runtime macros/sandwich/keymap/surround.vim
+  # sa
+  #https://github.com/machakann/vim-sandwich/wiki/Introduce-vim-surround-keymappings
+- repo: andymass/vim-matchup
+  hook_add: |
+            let g:loaded_matchit = 1
+            let g:matchup_override_vimtex = 1
 
 # - repo:  tpope/vim-surround 
 
