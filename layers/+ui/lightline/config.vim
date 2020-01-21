@@ -1,3 +1,4 @@
+let g:spaceline_line_symbol = 0
 let g:lightline = extend(get(g:, 'lightline', {}),{
     \   'colorscheme': 'nord',
     \   'active': {

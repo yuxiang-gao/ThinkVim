@@ -90,7 +90,7 @@ call etc#util#source_file('layers/+before/ubuntu-specific.vim')
 endif
 
 if uname[:4] !=? "linux"
-call etc#util#source_file('layers/+thinkvim/mac-specific.vim')
+call etc#util#source_file('layers/+before/mac-specific.vim')
 endif
 
 call etc#util#source_file('core/general.vim')

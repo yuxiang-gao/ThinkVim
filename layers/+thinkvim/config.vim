@@ -1,5 +1,7 @@
 "Plugin key settings
-
+if dein#tap('lightline.vim')
+        call etc#util#source_file("layers/+ui/lightline/config.vim")
+endif
 if dein#tap('denite.nvim')
         nnoremap <silent><LocalLeader>dm :<C-u>Denite menu<CR>
         noremap zl :<C-u>call <SID>my_denite_outline(&filetype)<CR>

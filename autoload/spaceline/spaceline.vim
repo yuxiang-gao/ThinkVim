@@ -4,9 +4,22 @@
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
-let s:symbol = get(g:, 'spaceline_line_symbol', 1)
+let s:symbol = get(g:, 'spaceline_line_symbol', 0)
+
+function! s:vimacsline_is_lean() abort
+  return &filetype =~? '\v^defx|coc-explorer|mundo(diff)?$'
+endfunction
+
+function! s:vimacsline_is_plain() abort
+  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vista_kind|vista|magit|tagbar$'
+endfunction
+
+
 function! spaceline#spaceline#VimacsLineGit()
     if &filetype ==? 'defx'
+       return ""
+    endif
+    if s:vimacsline_is_lean()
        return ""
     endif
     let gitbranch=get(g:, 'coc_git_status', '')
@@ -22,14 +35,6 @@ function! spaceline#spaceline#VimacsLineGit()
     call add(gitinfo,gitbranch)
     call add(gitinfo,gitcount)
     return trim(join(gitinfo,''))
-endfunction
-
-function! s:vimacsline_is_lean() abort
-  return &filetype =~? '\v^defx|mundo(diff)?$'
-endfunction
-
-function! s:vimacsline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vista_kind|vista|magit|tagbar$'
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
@@ -63,6 +68,9 @@ function! spaceline#spaceline#Filesize()abort
   endif
   if &filetype ==? 'defx'
       return ''
+  endif
+  if s:vimacsline_is_lean()
+      return ""
   endif
   if s:symbol == 1
     return Fsize(@%)
@@ -187,6 +195,9 @@ function! spaceline#spaceline#CocStatusBar() abort
     if &filetype ==? 'vista'
         return ""
     endif
+    if &filetype ==? 'coc-explorer'
+      return ''
+    endif
      return join(['❖',s])
 endfunction
 
@@ -243,6 +254,9 @@ function! spaceline#spaceline#FileEncoding()
   if &filetype ==? 'magit'
     return ""
   endif
+  if &filetype ==? 'coc-explorer'
+      return ''
+  endif
   let l:encod = (&fenc !=# "" ? &fenc : &enc)
   if s:symbol == 1
     return l:encod
@@ -257,6 +271,9 @@ function! spaceline#spaceline#VimacsLineFiletype()
     if &filetype==? 'magit'
         return ""
     endif
+    if &filetype ==? 'coc-explorer'
+      return ''
+    endif
     if s:symbol == 1
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' : 'no ft') : ''
     endif
@@ -269,6 +286,9 @@ function! spaceline#spaceline#VimacsLineFileformat()
     endif
     if &filetype==? 'magit'
         return ''
+    endif
+    if &filetype ==? 'coc-explorer'
+      return ''
     endif
     if s:symbol == 1
   return winwidth(0) > 70 ? (' '.&fileformat . ' ' ) : ''
