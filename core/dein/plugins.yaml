@@ -5,6 +5,8 @@
 - repo: Shougo/dein.vim
 
 - repo: arcticicestudio/nord-vim
+- repo: chrisbra/Colorizer
+
 # - repo: yuxiang-gao/spaceline.vim
 #   hook_add: |
 #             let g:spaceline_seperate_style= 'slant'
@@ -83,11 +85,16 @@
   depends: vim-devicons
   hook_source: source  $VIM_PATH/layers/+ui/startify/config.vim
   hook_post_source: |
+    let g:startify_session_autoload = 1
     function! StartifyEntryFormat()
       return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
     endfunction
     if has('nvim')
       autocmd TabNewEntered * Startify
+      autocmd VimEnter *
+            \ |   Defx
+            \ |   Startify
+            \ |   wincmd w 
     else
       autocmd VimEnter * let t:startify_new_tab = 1
       autocmd BufEnter *
@@ -354,7 +361,14 @@
     let g:loaded_matchit = 1
     let g:matchup_override_vimtex = 1
 
-# - repo:  tpope/vim-surround
+- repo: tpope/vim-surround
+- repo: junegunn/rainbow_parentheses.vim
+  on_cmd: [RainbowParentheses, RainbowParenthesesColors]
+  hook_source: |
+    augroup rainbow_lisp
+        autocmd!
+        autocmd FileType python,cpp,lisp,clojure,scheme RainbowParentheses
+    augroup END
 
 # }}}
 
@@ -366,6 +380,7 @@
 # - repo: airblade/vim-gitgutter
 #   on_path: .*
 #   hook_source: source ~/.config/nvim/core/plugins/vim-gitgutter.vim
+
 
 # TMUX Integration {{{
 - repo: benmills/vimux

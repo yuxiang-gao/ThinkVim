@@ -8,7 +8,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_go_golangci_lint_executable = '/Users/pendragon/workstation/bin/golangci-lint'
-
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_lintetrs = {
       \ 'go': ['golangci-linter'],
       \'javascript': ['eslint', 'stylelint'],
