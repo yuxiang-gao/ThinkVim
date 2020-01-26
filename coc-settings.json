@@ -1,8 +1,8 @@
 {
-  "suggest.autoTrigger": "none",
+  "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "suggest.enablePreview": true,
   "suggest.detailField": "abbr",
   "suggest.snippetIndicator": "🌟",

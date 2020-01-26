@@ -5,8 +5,9 @@ let g:lightline = extend(get(g:, 'lightline', {}),{
     \       'left': [ [ 'lineMode', 'mode', 'paste' ],
     \               [ 'gitbranch' ],
     \               [ 'readonly', 'filetype', 'filename', 'fileSize']],
-    \       'right': [ ['statusLineInfo'],
-    \               [ 'fileformat', 'fileEncod' ],
+    \       'right': [ 
+    \               ['statusLineInfo'],
+    \               [ 'fileEncod' ],
     \               ['errorHeart','cocError','cocWarn',],
     \               [ 'currentfunction' ], 
     \               ['cocStatus']]
@@ -33,7 +34,8 @@ let g:lightline = extend(get(g:, 'lightline', {}),{
     \       'fileSize': 'spaceline#spaceline#Filesize',
     \       'fileEncod': 'paceline#spaceline#FileEncoding',
     \       'errorHeart': 'spaceline#spaceline#HeartErrorSymbol',
-    \       'lineMode': 'spaceline#spaceline#VimacslineMode'
+    \       'lineMode': 'spaceline#spaceline#VimacslineMode',
+    \       'kite': 'kite#statusline'
     \   },
     \   'tabline': {
     \       'left': [ [ 'tabs' ] ],

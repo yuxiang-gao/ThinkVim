@@ -138,7 +138,7 @@ if dein#tap('coc.nvim')
         " nmap gE :CocCommand explorer --position=right<CR>
         " execute "nmap <leader>r :CocCommand explorer --reveal=".expand('<sfile>:h')."/package.json<CR>"
         " nmap <leader>jt :CocCommand explorer --position=tab<CR>
-        nmap <leader>j :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;modified;readonly<CR>
+        nmap <leader>j :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;modified;readonly<CR><CR>
         " nmap <leader>cfb :CocCommand explorer --file-columns=git:selection:clip:diagnosticError:indent:icon:filename;fullpath;size;created;modified;accessed;readonly<CR>
 
 
