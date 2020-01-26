@@ -176,12 +176,19 @@ endfunction
 
 function! spaceline#spaceline#CocStatusBar() abort
     let status=get(g:, 'coc_status', '')
-    let regstatus=substitute(status,"TSC","Ⓣ ","")
+    let status=substitute(status,"TSC","Ⓣ ","")
+    let status=substitute(status,"64-bit","","")
+    let status=substitute(status,"3.8.1","","")
+    let regstatus=substitute(status,"python","","")
     let statusbar= split(regstatus)
-    if &filetype ==? "go"
-        let gobar ="Ⓖ "
-        call add(statusbar,gobar)
-    endif
+    " if &filetype ==? "go"
+    "     let gobar ="Ⓖ "
+    "     call add(statusbar,gobar)
+    " endif
+    " if &filetype ==? "python"
+    "     let pybar =""
+    "     call add(statusbar,pybar)
+    " endi
     let s = join(statusbar," ")
     if empty(s)
         return ""
@@ -198,7 +205,10 @@ function! spaceline#spaceline#CocStatusBar() abort
     if &filetype ==? 'coc-explorer'
       return ''
     endif
-     return join(['❖',s])
+    if &filetype ==? "python"
+        return join(['',s])
+    end
+    return join(['❖',s])
 endfunction
 
 function! spaceline#spaceline#VimacsLineCocError()

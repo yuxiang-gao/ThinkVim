@@ -6,9 +6,7 @@ let g:lightline = extend(get(g:, 'lightline', {}),{
     \               [ 'gitbranch' ],
     \               [ 'readonly', 'filetype', 'filename', 'fileSize']],
     \       'right': [ 
-    \               ['statusLineInfo'],
-    \               [ 'fileEncod' ],
-    \               ['errorHeart','cocError','cocWarn',],
+    \               ['statusLineInfo'],[ 'cocError','cocWarn',],
     \               [ 'currentfunction' ], 
     \               ['cocStatus']]
     \   },
