@@ -11,6 +11,7 @@ let g:coc_global_extensions =['coc-html','coc-css','coc-vetur','coc-snippets','c
     \ 'coc-texlab',
     \ 'coc-actions',
     \ 'coc-vimtex',
+    \ 'coc-bibtex',
     \ 'coc-terminal',
     \ 'coc-docker',
     \ 'coc-ccls',
@@ -21,7 +22,9 @@ let g:coc_global_extensions =['coc-html','coc-css','coc-vetur','coc-snippets','c
     \ 'coc-spell-checker',
     \ 'coc-markmap',
     \ 'coc-bookmark',
-    \ 'coc-kite'
+    \ 'coc-kite',
+    \ 'coc-markdownlint',
+    \ 'coc-browser',
     \]
 
 augroup MyAutoCmd

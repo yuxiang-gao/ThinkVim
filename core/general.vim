@@ -246,7 +246,7 @@ function! StartifyEntryFormat()
 endfunction
 if has('nvim')
     autocmd TabNewEntered * Startify
-    autocmd VimEnter * let t:startify_new_tab = 1
+    autocmd VimEnter * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) | Startify | Defx | endif
 else
     autocmd VimEnter * let t:startify_new_tab = 1
     autocmd BufEnter *
@@ -255,3 +255,6 @@ else
         \   Startify |
         \ endif
 endif
+
+" startify when there is no buffer or args
+autocmd BufDelete * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) | Startify | endif
