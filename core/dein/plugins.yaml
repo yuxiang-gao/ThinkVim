@@ -21,6 +21,9 @@
 
 - repo: bagrat/vim-buffet
   hook_add: source $VIM_PATH/layers/+ui/buffet/config.vim
+
+# - repo: "Shougo/vimproc.vim"
+#   build: "make"
 #}}}
 
 # - repo: rafi/awesome-vim-colorschemes
@@ -92,8 +95,8 @@
     if has('nvim')
       autocmd TabNewEntered * Startify
       autocmd VimEnter *
-            \ |   Defx
             \ |   Startify
+            \ |   Defx
             \ |   wincmd w 
     else
       autocmd VimEnter * let t:startify_new_tab = 1
@@ -380,7 +383,6 @@
 # - repo: airblade/vim-gitgutter
 #   on_path: .*
 #   hook_source: source ~/.config/nvim/core/plugins/vim-gitgutter.vim
-
 
 # TMUX Integration {{{
 - repo: benmills/vimux

@@ -1,4 +1,4 @@
-let g:which_key_hspace = 2
+let g:which_key_hspace = 5
 let g:which_key_flatten = 1
 let g:which_key_max_size = 60
 let g:which_key_vertical = 0 " horizontal would crash when windo not wide enough

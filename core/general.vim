@@ -238,3 +238,20 @@ endif
         autocmd FileType qf nmap <buffer> q :q<cr>
     augroup END
 " }}}
+
+
+let g:startify_session_autoload = 1
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
+if has('nvim')
+    autocmd TabNewEntered * Startify
+    autocmd VimEnter * Startify
+else
+    autocmd VimEnter * let t:startify_new_tab = 1
+    autocmd BufEnter *
+        \ if !exists('t:startify_new_tab') && empty(expand('%')) |
+        \   let t:startify_new_tab = 1 |
+        \   Startify |
+        \ endif
+endif
