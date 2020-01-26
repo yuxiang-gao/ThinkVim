@@ -246,7 +246,7 @@ function! StartifyEntryFormat()
 endfunction
 if has('nvim')
     autocmd TabNewEntered * Startify
-    autocmd VimEnter * Startify
+    autocmd VimEnter * let t:startify_new_tab = 1
 else
     autocmd VimEnter * let t:startify_new_tab = 1
     autocmd BufEnter *
