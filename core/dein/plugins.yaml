@@ -254,9 +254,9 @@
     let g:mkdp_auto_start = 0
     let g:mkdp_auto_close = 1
     let g:mkdp_browser = ''
-    nmap <LocalLeader>mp <Plug>MarkdownPreview
-    nmap <LocalLeader>ms <Plug>MarkdownPreviewStop
-    nmap <LocalLeader>md <Plug>MarkdownPreviewToggle
+    autocmd FileType markdown nmap <LocalLeader>lp <Plug>MarkdownPreview
+    autocmd FileType markdown nmap <LocalLeader>ls <Plug>MarkdownPreviewStop
+    autocmd FileType markdown nmap <LocalLeader>lt <Plug>MarkdownPreviewToggle
 
 # Python related
 - { repo: vim-python/python-syntax, on_ft: python }

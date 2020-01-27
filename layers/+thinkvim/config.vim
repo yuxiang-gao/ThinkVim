@@ -106,16 +106,7 @@ if dein#tap('coc.nvim')
         xmap <silent> <C-s> <Plug>(coc-cursors-range)
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
-        " xmap <silent> <C-d> <Plug>(coc-cursors-range)
         " nmap <expr> <silent> <C-d> <SID>select_current_word()
-        function! s:select_current_word()
-        if !get(g:, 'coc_cursors_activated', 0)
-            return "\<Plug>(coc-cursors-word)"
-        endif
-        return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-        endfunc(coc-cursors-range)gn
-        " use normal command like `<leader>xi(`
-        nmap <leader>x  <Plug>(coc-cursors-operator)
 
         function! s:select_current_word()
             if !get(g:, 'coc_cursors_activated', 0)
@@ -126,8 +117,6 @@ if dein#tap('coc.nvim')
 
         nnoremap <silent> <leader>cm ::CocSearch -w 
         nnoremap <silent> <leader>cw ::CocSearch  
-        " use normal command like `<leader>xi(`
-        nmap <leader>x  <Plug>(coc-cursors-operator)
         " coc-explorer
         " noremap <silent> <leader>ja :execute 'CocCommand explorer' .
         "     \ ' --toggle' .
@@ -146,9 +135,9 @@ if dein#tap('coc.nvim')
         " terminal
          nnoremap <silent> <Leader>ct :CocCommand terminal.Toggle<CR>
         " Python
-         nnoremap <silent> <LocalLeader>pl :CocCommand python.runLinting<CR>
-         nnoremap <silent> <LocalLeader>pr :CocCommand python.execInTerminal<CR>
-         nnoremap <silent> <LocalLeader>pt :CocCommand python.createTerminal<CR>
+         autocmd FileType python nnoremap <silent> <LocalLeader>ll :CocCommand python.runLinting<CR>
+         autocmd FileType python nnoremap <silent> <LocalLeader>lr :CocCommand python.execInTerminal<CR>
+         autocmd FileType python nnoremap <silent> <LocalLeader>lt :CocCommand python.createTerminal<CR>
 endif
 
 if dein#tap('fzf.vim')

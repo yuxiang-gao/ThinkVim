@@ -106,15 +106,10 @@ let g:which_key_map[' '] = {
 
 
 let g:which_key_localmap ={
-      \ 'name' : '+LocalLeaderKey'  ,
+      \ 'name' : '+LocalLeaderKey',
+      \ 'l'    : {'name': '+ Language Specific',},
       \ 'v'    : 'open vista show outline',
       \ 'r'    : 'quick run',
-      \ 'm': {
-            \ 'name' : '+markdown-toolkit',
-            \ 'd' : 'toggle md preview',
-            \ 'p' : 'md preview',
-            \ 's' : 'stop',
-            \ },
       \ 'g' : {
             \ 'name' : '+golang-toolkit',
             \ 'i'    : 'go impl',
@@ -124,7 +119,6 @@ let g:which_key_localmap ={
             \ 's'    : 'go callstack',
             \ },
       \ 's':{'name': '+Sandwich'},
-      \ 'p':{'name': '+Python'},
       \ 'd':{'name': '+denite',
       \      'm'    : 'toolkit Menu',
       \     },
