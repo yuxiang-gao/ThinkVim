@@ -138,6 +138,8 @@ if dein#tap('coc.nvim')
          autocmd FileType python nnoremap <silent> <LocalLeader>ll :CocCommand python.runLinting<CR>
          autocmd FileType python nnoremap <silent> <LocalLeader>lr :CocCommand python.execInTerminal<CR>
          autocmd FileType python nnoremap <silent> <LocalLeader>lt :CocCommand python.createTerminal<CR>
+         " LaTex
+         autocmd FileType tex nnoremap <silent> <LocalLeader>lb :CocCommand latex.Build<CR>
 endif
 
 if dein#tap('fzf.vim')

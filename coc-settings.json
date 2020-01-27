@@ -262,11 +262,30 @@
         "markdown",
         "yaml"
       ]
+    },
+    "latex": {
+      "command": "/usr/local/bin/texlab",
+      // not start server at home directory, since it won't work.
+      "ignoredRootPaths": ["~"],
+      "filetypes": ["tex", "bib", "plaintex", "context"]
     }
   },
   "cSpell.userWords": [
     "numpy",
     "pyplot",
     "roslaunch"
-  ]
+  ],
+  "list": {
+    "source": {
+      "bibtex": {
+        "files": [
+          "~/Documents/Papers/bib/library.bib "
+        ],
+        "citation": {
+          "before": "\cite{",
+          "after": "\}"
+        }
+      }
+    }
+  }
 }
