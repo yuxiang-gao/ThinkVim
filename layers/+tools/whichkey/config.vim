@@ -65,17 +65,7 @@ let g:which_key_map = {
       \ 'st' : 'open startify screen',
       \ 'ep' : 'edit pluginsconfig {filename}',
       \ 'x' : 'coc cursors operate',
-      \ 'g'  :{
-                \'name':'+git-operate',
-                \ 'd'    : 'Gdiff',
-                \ 'c'    : 'Gcommit',
-                \ 'b'    : 'Gblame',
-                \ 'B'    : 'Gbrowse',
-                \ 'S'    : 'Gstatus',
-                \ 'p'    : 'git push',
-                \ 'l'    : 'GitLogAll',
-                \ 'h'    : 'GitBranch',
-                \},
+      \ 'g'  :{'name':'+git-operate',},
       \ 'c'    : {
               \ 'name' : '+coc list' ,
               \ 'a'    : 'coc CodeActionSelected',

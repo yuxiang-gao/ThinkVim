@@ -191,7 +191,8 @@ if dein#tap('vim-fugitive')
     nnoremap <silent> <Leader>gP :Git push<CR>
 	nnoremap <silent> <Leader>gb :Git blame<CR>
 	nnoremap <silent> <Leader>gB :Git browse<CR>
-	nnoremap <silent> <Leader>gS :Git status<CR>
+    nnoremap <silent> <Leader>gS :Git stash<CR
+	nnoremap <silent> <Leader>gs :Git status<CR>
 endif
 
 if dein#tap('chemzqm/denite-git')
