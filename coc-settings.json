@@ -282,8 +282,8 @@
           "~/Documents/Papers/bib/library.bib "
         ],
         "citation": {
-          "before": "\cite{",
-          "after": "\}"
+          "before": "\\cite{",
+          "after": "\\}"
         }
       }
     }
