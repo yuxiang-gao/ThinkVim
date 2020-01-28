@@ -1,4 +1,5 @@
 {
+  "coc.preferences.jumpCommand": "vsplit",
   "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
@@ -42,6 +43,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   //git
   "git.enableGutters": true,
   "git.branchCharacter": "\uf408",
@@ -68,10 +70,17 @@
     "--auto-preview"
   ],
   //prettier
+  "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
-    "python"
+    "python",
+    "rust",
+    "cpp",
+    "c",
+    "html",
+
   ],
   "prettier.statusItemText": "ⓟ ",
   "prettier.eslintIntegration": true,

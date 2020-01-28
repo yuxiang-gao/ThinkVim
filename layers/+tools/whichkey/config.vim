@@ -116,6 +116,8 @@ let g:which_key_localmap ={
       \ 'jj': 'pagedown',
       \ 'k': 'half pageup',
       \ 'kk': 'pageup',
+      \ 'f': 'Format Selected',
+      \ 'F': 'Format'
       \ }
 
 let g:which_key_rsbgmap = {

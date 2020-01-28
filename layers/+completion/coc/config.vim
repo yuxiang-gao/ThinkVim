@@ -46,10 +46,17 @@ inoremap <silent><expr> <TAB>
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+command! -nargs=0 Format :call CocAction('format')
+vmap <LocalLeader>f  <Plug>(coc-format-selected)
+nmap <LocalLeader>f  <Plug>(coc-format-selected)
+
+vmap <LocalLeader>F :Format<CR> 
+nmap <LocalLeader>F :Format<CR>
