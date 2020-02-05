@@ -1,9 +1,12 @@
+let g:vimtex_complete_enabled=0
 let g:vimtex_view_enabled=1
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_levelmarker='❯❯❯'
 let g:vimtex_format_enabled=1
+
+let g:vimtex_complete_close_braces=1
 
 let g:vimtex_quickfix_autoclose_after_keystrokes=1
 " Disable all warnings
