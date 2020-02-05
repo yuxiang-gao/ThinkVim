@@ -103,6 +103,8 @@
   "python.setInterpreter": "~/.pyenv/versions/miniconda3-latest/bin/python",
   "python.autoComplete.addBrackets": true,
   "python.formatting.provider": "black",
+  // vimtex
+  "coc.source.vimtex.enable": true,
   // coc-explorer
   // "explorer.icon.expanded": "▾",
   // "explorer.icon.collapsed": "▸",

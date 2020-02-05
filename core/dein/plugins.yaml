@@ -34,6 +34,7 @@
   hook_add: let g:sleuth_neighbor_limit = 5
 
 # Core Plugins{{{
+# - repo: SirVer/ultisnips
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
@@ -282,6 +283,14 @@
 # rust
 - repo: rust-lang/rust.vim
   on_ft: [rust, rs]
+
+# latex
+- repo: lervag/vimtex
+  on_ft: [latex, tex, bib]
+  hook_source: source  $VIM_PATH/layers/+lang/latex/config.vim
+
+# - repo: sheerun/vim-polyglot
+# hook_add: let g:polyglot_disabled = ['latex']
 
 # }}}
 
