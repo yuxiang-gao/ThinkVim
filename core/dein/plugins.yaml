@@ -37,8 +37,8 @@
 # Core Plugins{{{
 # - repo: SirVer/ultisnips
 - repo: neoclide/coc.nvim
-  build: ./install.sh nightly
-  # merge: 0
+  # build: ./install.sh nightly
+  merge: 0
   rev: release
   hook_add: source  $VIM_PATH/layers/+completion/coc/config.vim
 
