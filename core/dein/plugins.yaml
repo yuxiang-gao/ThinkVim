@@ -7,7 +7,8 @@
 - repo: arcticicestudio/nord-vim
 - repo: morhetz/gruvbox
 - repo: chrisbra/Colorizer
-
+- repo: sainnhe/gruvbox-material
+- repo: shinchu/lightline-gruvbox.vim
 # - repo: yuxiang-gao/spaceline.vim
 #   hook_add: |
 #             let g:spaceline_seperate_style= 'slant'
@@ -36,7 +37,8 @@
 # Core Plugins{{{
 # - repo: SirVer/ultisnips
 - repo: neoclide/coc.nvim
-  merge: 0
+  build: ./install.sh nightly
+  # merge: 0
   rev: release
   hook_add: source  $VIM_PATH/layers/+completion/coc/config.vim
 
